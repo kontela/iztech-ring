@@ -4,7 +4,8 @@ import com.iztech.ringtracker.route.Route;
 import com.iztech.ringtracker.route.RouteRepository;
 import com.iztech.ringtracker.stop.Stop;
 import com.iztech.ringtracker.stop.StopRepository;
-import jakarta.persistence.EntityNotFoundException;
+import com.iztech.ringtracker._common_.exception.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

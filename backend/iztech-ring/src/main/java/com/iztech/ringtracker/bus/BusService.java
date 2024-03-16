@@ -1,6 +1,6 @@
 package com.iztech.ringtracker.bus;
 
-import jakarta.persistence.EntityNotFoundException;
+import com.iztech.ringtracker._common_.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
