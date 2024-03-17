@@ -11,7 +11,7 @@ import java.util.Map;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class ETADto {
+class ETADto {
     private Long routeId;
     private String routeName;
     private Map<Long, Integer> stopIdToETAMap; // Maps stop ID to ETA in minutes

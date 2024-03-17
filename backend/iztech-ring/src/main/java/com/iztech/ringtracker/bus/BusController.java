@@ -1,6 +1,7 @@
 package com.iztech.ringtracker.bus;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,6 +12,8 @@ import java.util.List;
 class BusController {
 
     private final BusService busService;
+    @Value("${bus.location.defaultMinutes}")
+    private int defaultMinutes;
 
     @Autowired
     BusController(BusService busService){

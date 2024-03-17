@@ -1,11 +1,10 @@
 package com.iztech.ringtracker.eta;
 
 import com.iztech.ringtracker.route.Route;
-import com.iztech.ringtracker.route.RouteRepository;
+import com.iztech.ringtracker.route.RouteService;
 import com.iztech.ringtracker.stop.Stop;
-import com.iztech.ringtracker.stop.StopRepository;
-import com.iztech.ringtracker._common_.exception.EntityNotFoundException;
 
+import com.iztech.ringtracker.stop.StopService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,14 +14,14 @@ import java.util.List;
 class ETAService {
 
 
-    private final RouteRepository routeRepository;
-    private final StopRepository stopRepository;
+    private final RouteService routeService;
+    private final StopService stopService;
     private final RouteStopRepository routeStopRepository;
 
     @Autowired
-    ETAService(RouteRepository routeRepository, StopRepository stopRepository,RouteStopRepository routeStopRepository){
-        this.routeRepository=routeRepository;
-        this.stopRepository=stopRepository;
+    ETAService(RouteService routeService, StopService stopService,RouteStopRepository routeStopRepository){
+        this.routeService=routeService;
+        this.stopService=stopService;
         this.routeStopRepository=routeStopRepository;
     }
 
@@ -30,11 +29,9 @@ class ETAService {
 
     RouteStop createRouteStop(long routeId, long stopId, int durationFromStart){
 
-        Route route = routeRepository.findById(routeId)
-                .orElseThrow(() -> new EntityNotFoundException("Route not found for id: " + routeId));
+        Route route = routeService.findById(routeId);
 
-        Stop stop= stopRepository.findById(stopId)
-                .orElseThrow(() -> new EntityNotFoundException("Stop not found for id: " + stopId));
+        Stop stop = stopService.findById(stopId);
 
         RouteStop routeStop = new RouteStop(route, stop, durationFromStart);
         return routeStopRepository.save(routeStop);
@@ -42,8 +39,8 @@ class ETAService {
            }
 
      ETADto calculateETAForRoute(Long routeId) {
-        Route route = routeRepository.findById(routeId)
-                .orElseThrow(() -> new EntityNotFoundException("Route not found for id: " + routeId));
+
+        Route route = routeService.findById(routeId);
 
         List<RouteStop> routestops = routeStopRepository.findByRoute(route);
 
