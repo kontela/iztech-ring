@@ -1,8 +1,7 @@
 package com.iztech.ringtracker.stop;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.iztech.ringtracker.eta.RouteStop;
+import com.iztech.ringtracker.stoponroute.StopOnRoute;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,12 +21,15 @@ public class Stop {
 
     private String name;
 
+    private Double latitude;
+    private Double longitude;
+
     @JsonIgnore
     @OneToMany(mappedBy = "stop", cascade = CascadeType.ALL, orphanRemoval = true)
-    private Set<RouteStop> routes = new HashSet<>();
+    private Set<StopOnRoute> routes = new HashSet<>();
 
-    public void addRouteBusStop(RouteStop routeStop) {
-        routes.add(routeStop);
+    public void addRouteBusStop(StopOnRoute stopOnRoute) {
+        routes.add(stopOnRoute);
 
     }
 }

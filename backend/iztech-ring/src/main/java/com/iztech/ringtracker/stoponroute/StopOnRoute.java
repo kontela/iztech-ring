@@ -1,4 +1,4 @@
-package com.iztech.ringtracker.eta;
+package com.iztech.ringtracker.stoponroute;
 
 import com.iztech.ringtracker.route.Route;
 import com.iztech.ringtracker.stop.Stop;
@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class RouteStop {
+public class StopOnRoute {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -35,7 +35,7 @@ public class RouteStop {
         this.stop = stop;
     }
 
-    public RouteStop(Route route, Stop stop, int arrivalTimeFromStart) {
+    public StopOnRoute(Route route, Stop stop, int arrivalTimeFromStart) {
         this.route = route;
         this.stop = stop;
         this.arrivalTimeFromStart=arrivalTimeFromStart;

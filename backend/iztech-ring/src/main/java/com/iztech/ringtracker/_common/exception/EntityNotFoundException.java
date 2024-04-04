@@ -1,4 +1,4 @@
-package com.iztech.ringtracker._common_.exception;
+package com.iztech.ringtracker._common.exception;
 
 public class EntityNotFoundException extends RuntimeException {
 

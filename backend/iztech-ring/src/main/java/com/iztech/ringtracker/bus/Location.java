@@ -13,6 +13,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @Getter
 @Setter
+public
 class Location {
 
     @Id

@@ -7,9 +7,12 @@ import org.springframework.stereotype.Repository;
 
 import java.time.Instant;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
-interface LocationRepository extends JpaRepository<Location, Long> {
+public interface LocationRepository extends JpaRepository<Location, Long> {
+
+    Optional<Location> findTopByBusOrderByTimestampDesc(Bus bus);
 
     @Query("SELECT l FROM Location l WHERE l.timestamp IN (SELECT MAX(l2.timestamp) FROM Location l2 GROUP BY l2.bus ) AND l.timestamp > :thresholdTime")
     List<Location> findLatestLocationForEveryBus(@Param("thresholdTime") Instant thresholdTime);

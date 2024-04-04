@@ -1,7 +1,5 @@
-package com.iztech.ringtracker._common_.exception;
+package com.iztech.ringtracker._common.exception;
 
-import com.iztech.ringtracker._common_.exception.ApiErrorResponse;
-import com.iztech.ringtracker._common_.exception.EntityNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;

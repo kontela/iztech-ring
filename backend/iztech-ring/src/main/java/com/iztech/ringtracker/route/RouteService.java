@@ -1,8 +1,10 @@
 package com.iztech.ringtracker.route;
 
-import com.iztech.ringtracker._common_.exception.EntityNotFoundException;
+import com.iztech.ringtracker._common.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class RouteService {
@@ -13,7 +15,7 @@ public class RouteService {
     public RouteService(RouteRepository routeRepository){
         this.routeRepository=routeRepository;
     }
-    Route createRoute(Route route) {
+    public Route createRoute(Route route) {
         return routeRepository.save(route);
     }
 
@@ -25,6 +27,9 @@ public class RouteService {
                 .orElseThrow(() -> new EntityNotFoundException("Route not found for id: " + id));
 
         return route;
+    }
+    public List<Route> findAll(){
+        return routeRepository.findAll();
     }
 
 }

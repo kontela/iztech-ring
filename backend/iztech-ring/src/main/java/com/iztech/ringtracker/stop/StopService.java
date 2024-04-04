@@ -1,8 +1,10 @@
 package com.iztech.ringtracker.stop;
 
-import com.iztech.ringtracker._common_.exception.EntityNotFoundException;
+import com.iztech.ringtracker._common.exception.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class StopService {
@@ -26,5 +28,8 @@ public class StopService {
         return stop;
     }
 
+    public List<Stop> findAll(){
+        return stopRepository.findAll();
+    }
 
 }

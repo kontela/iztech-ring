@@ -1,11 +1,11 @@
-package com.iztech.ringtracker.eta;
+package com.iztech.ringtracker.stoponroute;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-class RouteStopDto {
+public class StopOnRouteDto {
         private long routeId;
         private long stopId;
         private int durationFromStart;

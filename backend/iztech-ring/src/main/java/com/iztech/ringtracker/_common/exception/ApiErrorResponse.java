@@ -1,4 +1,4 @@
-package com.iztech.ringtracker._common_.exception;
+package com.iztech.ringtracker._common.exception;
 
 import lombok.Getter;
 import lombok.Setter;
